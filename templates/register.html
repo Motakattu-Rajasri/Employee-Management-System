@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Form</title>
+
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+    <body class="{{ theme }}">
+
+
+    <div class="register-container">
+
+
+        <!-- ================= THEME BUTTONS ================= -->
+
+        <div class="theme-buttons">
+
+            <a href="/set-theme/light">
+                ☀ Light
+            </a>
+
+            <a href="/set-theme/dark">
+                🌙 Dark
+            </a>
+
+        </div>
+
+    <form action="/register" method="POST" id="registrationForm">
+
+        <!-- Full Name -->
+
+        <label>Full Name:</label>
+
+        <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            required>
+
+        <br><br>
+
+
+        <!-- Username -->
+
+        <label>Username:</label>
+
+        <input
+            type="text"
+            id="username"
+            name="username"
+            required>
+
+        <br><br>
+
+
+        <!-- Password -->
+
+        <label>Password:</label>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            required>
+
+        <br><br>
+
+
+        <!-- Buttons -->
+
+        <input
+            type="submit"
+            value="Register">
+
+        <button
+            type="button"
+            onclick="resetform()">
+            Reset
+        </button>
+
+
+        <!-- JavaScript -->
+
+        <script>
+
+            function resetform() {
+
+                document
+                    .getElementById("registrationForm")
+                    .reset();
+
+            }
+
+        </script>
+
+    </form>
+
+</body>
+
+</html>
