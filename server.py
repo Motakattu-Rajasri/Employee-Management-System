@@ -66,7 +66,6 @@ def create_database():
     """)
 
     connection.commit()
-
     connection.close()
 
     print("=================================")
@@ -91,7 +90,6 @@ def login_required():
 def set_theme(theme):
 
     if theme not in ["light", "dark"]:
-
         theme = "light"
 
     previous_page = request.referrer or "/"
@@ -116,6 +114,7 @@ def set_theme(theme):
 @app.route("/")
 def home():
 
+    # LOGIN REQUIRED
     if not login_required():
 
         return redirect("/login")
@@ -254,7 +253,7 @@ def register():
         connection.close()
 
         return render_template(
-            "registers.html",
+            "register.html",
             theme=request.cookies.get(
                 "theme",
                 "light"
@@ -295,10 +294,6 @@ def login_page():
 
 @app.route("/login", methods=["POST"])
 def login():
-
-    # =====================================
-    # GET FORM VALUES
-    # =====================================
 
     username = request.form.get(
         "username",
@@ -485,27 +480,21 @@ def add_employee():
     # =====================================
 
     if not name:
-
         return "Name is required!"
 
     if not email:
-
         return "Email is required!"
 
     if not phone:
-
         return "Phone is required!"
 
     if not department:
-
         return "Department is required!"
 
     if not salary:
-
         return "Salary is required!"
 
     if not joining_date:
-
         return "Joining date is required!"
 
     try:
@@ -548,7 +537,6 @@ def add_employee():
     ))
 
     connection.commit()
-
     connection.close()
 
     return redirect("/employees")
@@ -681,7 +669,6 @@ def delete_employee(id):
     ))
 
     connection.commit()
-
     connection.close()
 
     return redirect("/employees")
@@ -791,27 +778,21 @@ def edit_employee(id):
     # =====================================
 
     if not name:
-
         return "Name is required!"
 
     if not email:
-
         return "Email is required!"
 
     if not phone:
-
         return "Phone is required!"
 
     if not department:
-
         return "Department is required!"
 
     if not salary:
-
         return "Salary is required!"
 
     if not joining_date:
-
         return "Joining date is required!"
 
     try:
@@ -854,7 +835,6 @@ def edit_employee(id):
     ))
 
     connection.commit()
-
     connection.close()
 
     return redirect("/employees")
